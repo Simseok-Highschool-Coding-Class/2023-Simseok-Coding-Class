@@ -12,8 +12,30 @@ const char* baseUrl = "http://ping2.doky.space";
 
 
 void setup() {
+
   // 시리얼 통신 설정
   Serial.begin(115200);
+  Serial.print("ON\n");
+  pinMode(4, OUTPUT);
+
+  for(int i=0; i<10; i++) {
+
+    Serial.print("ON\n");
+    digitalWrite(4, HIGH);
+    delay(500);
+
+    Serial.println("OFF\n");
+    digitalWrite(4, LOW);
+    delay(500);
+
+  }
+
+
+
+  delay(30000);
+
+
+
   
   // 와이파이 연결
   connectToWifi(ssid, password);
